@@ -61,6 +61,7 @@ object Folder {
     case Opts.Subcommand(s)  =>
       c => c.copy(subcommands = c.subcommands.prepended(buildModel(s)))
     case _: Opts.Env         => identity
+    case _                   => identity
   }
 
   def buildModel(c: Command[_]): CompleteableCommand =
