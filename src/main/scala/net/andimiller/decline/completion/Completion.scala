@@ -12,7 +12,7 @@ object Completion {
       val (words, _) = wordsWithHelp.separate
       val cond       = path.reverse.zipWithIndex
         .map { case (cmd, idx) =>
-          s"\" $$ { cmds[$idx] } \" = \"$cmd\""
+          s"\"$${cmds[$idx]}\" = \"$cmd\""
         }
         .mkString("[[ ", " && ", " ]]")
       s"""if $cond; then
