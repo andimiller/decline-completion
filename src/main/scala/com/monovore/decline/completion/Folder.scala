@@ -35,7 +35,8 @@ object Folder {
   }
 
   def one(p: Opt[_]): Modifier = p match {
-    case Opt.Regular(names, metavar, help, visibility) => identity // TODO figure out what this is
+    case Opt.Regular(names, metavar, help, visibility) =>
+      c => c.copy(flags = c.flags ++ names.map(nameToString).tupleRight(help))
     case Opt.OptionalOptArg(names, _, _, _)            =>
       c => c.copy(arguments = c.arguments ++ names.map(nameToString))
     case Opt.Flag(names, help, visibility)             =>
