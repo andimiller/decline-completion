@@ -1,6 +1,6 @@
 import xerial.sbt.Sonatype._
 
-ThisBuild / version      := "0.0.2"
+ThisBuild / version      := "0.0.3"
 ThisBuild / scalaVersion := "2.13.11"
 
 lazy val core = crossProject(JVMPlatform, NativePlatform, JSPlatform)
